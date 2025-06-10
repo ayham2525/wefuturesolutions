@@ -1,0 +1,135 @@
+@import "../mixins.scss";
+
+.about_us {
+background: hsla(222, 40%, 10%, 1); /* fallback dark navy */
+
+background: linear-gradient(
+  90deg,
+  hsla(222, 25%, 12%, 1) 0%,   /* deep blue-black */
+  hsla(222, 35%, 18%, 1) 50%,  /* soft dark navy */
+  hsla(222, 20%, 10%, 1) 100%  /* back to deep blue-black */
+);
+
+background: -moz-linear-gradient(
+  90deg,
+  hsla(222, 25%, 12%, 1) 0%,
+  hsla(222, 35%, 18%, 1) 50%,
+  hsla(222, 20%, 10%, 1) 100%
+);
+
+background: -webkit-linear-gradient(
+  90deg,
+  hsla(222, 25%, 12%, 1) 0%,
+  hsla(222, 35%, 18%, 1) 50%,
+  hsla(222, 20%, 10%, 1) 100%
+);
+
+background-size: 200% 200%;
+animation: gradientMove 12s ease infinite;
+padding: 80px 20px;
+
+ 
+
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .illustration {
+    text-align: center;
+
+    img {
+      max-width: 100%;
+      animation: zoomIn 1s ease forwards;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    h2 {
+      font-size: 32px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      font-family: $alegreya;
+      line-height: 57.6px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .text {
+      color: #e0e0e0;
+      font-family: $montserrat;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 22.4px;
+    }
+
+    .learn-more {
+      align-self: flex-start;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: transparent;
+      color: #00ffd0;
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: $montserrat;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 22.4px;
+      border: 1px solid #00ffd0;
+      transition: all 0.3s ease;
+
+      svg {
+        transition: fill 0.3s ease;
+        fill: #00ffd0;
+        margin-left: 10px;
+      }
+
+      &:hover {
+        background-color: #00ffd0;
+        color: #001a2e;
+        transform: translateY(-2px);
+
+        svg g {
+          fill: #001a2e !important;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .content {
+      min-height: auto;
+    }
+  }
+}
+
+// Gradient animation
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// Zoom animation remains unchanged
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

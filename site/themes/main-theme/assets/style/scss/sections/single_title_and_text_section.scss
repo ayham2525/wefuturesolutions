@@ -1,0 +1,127 @@
+@import "../mixins.scss";
+
+.single_title_and_text_section {
+  width: 100%;
+     background: hsla(222, 40%, 10%, 1); /* fallback dark navy */
+
+background: linear-gradient(
+  90deg,
+  hsla(222, 25%, 12%, 1) 0%,   /* deep blue-black */
+  hsla(222, 35%, 18%, 1) 50%,  /* soft dark navy */
+  hsla(222, 20%, 10%, 1) 100%  /* back to deep blue-black */
+);
+
+background: -moz-linear-gradient(
+  90deg,
+  hsla(222, 25%, 12%, 1) 0%,
+  hsla(222, 35%, 18%, 1) 50%,
+  hsla(222, 20%, 10%, 1) 100%
+);
+
+background: -webkit-linear-gradient(
+  90deg,
+  hsla(222, 25%, 12%, 1) 0%,
+  hsla(222, 35%, 18%, 1) 50%,
+  hsla(222, 20%, 10%, 1) 100%
+);
+
+background-size: 200% 200%;
+animation: gradientMove 12s ease infinite;
+
+  padding: 80px 20px;
+  color: #ffffff;
+  margin-top: -80px;
+
+  .title {
+    margin-top: 80px;
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-family: $alegreya;
+    line-height: 57.6px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #e6f0ff;
+
+    @include MaxQuery($sm) {
+      font-size: 24px;
+      line-height: 38px;
+      margin-top: 80px;
+    }
+  }
+
+  .text {
+   color: #fff;
+    font-family: $montserrat;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22.4px;
+    & p {
+        & a , a:hover{ 
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+     & a , a:hover{ 
+            text-decoration: none;
+            color: #fff;
+        }
+
+    @include MaxQuery($sm) {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  .learn-more {
+    align-self: flex-start;
+    margin-top: 30px;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: #00ffd0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: $montserrat;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22.4px;
+    border: 1px solid #00ffd0;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+
+    svg {
+      transition: fill 0.3s ease;
+      fill: #00ffd0;
+      margin-left: 10px;
+    }
+
+    &:hover {
+      background-color: #00ffd0;
+      color: #001a2e;
+      transform: translateY(-2px);
+
+      svg g {
+        fill: #001a2e !important;
+      }
+    }
+
+    @include MaxQuery($sm) {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      padding: 12px;
+    }
+  }
+
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}

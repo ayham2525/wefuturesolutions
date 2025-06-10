@@ -1,0 +1,115 @@
+@import "../mixins.scss";
+
+.service_blocks {
+background: #000; /* Fallback solid black */
+  background: linear-gradient(90deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  background: -moz-linear-gradient(90deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  background: -webkit-linear-gradient(90deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite; 
+   color: #f1f1f1;
+  padding: 60px 0;
+  position: relative;
+
+  .section-header h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-family: $alegreya;
+    line-height: 57.6px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #e6f0ff; // Icy blue for better contrast
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .section-header p {
+    font-size: 16px;
+    color: #b0bfd9; // Cooler gray-blue tone
+    margin-bottom: 40px;
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+  }
+
+  .step {
+    background: rgba(25, 40, 65, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .step:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .step:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .step:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+
+  .step:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+  }
+
+  .step h4 {
+    font-size: 22px;
+    font-family: $alegreya;
+    font-size: 18px;
+    font-weight: 700;
+    color: #a0e9ff; // Softer bright cyan
+  }
+
+  .step p {
+    color: #e1e1e1; // Lighter than #ddd
+    flex-grow: 1;
+    font-family: $montserrat;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22.4px;
+  }
+
+  // Optional overlay for deeper contrast
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
+    z-index: 0;
+  }
+
+  // Ensure content appears above overlay
+  >* {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// Animation keyframes
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

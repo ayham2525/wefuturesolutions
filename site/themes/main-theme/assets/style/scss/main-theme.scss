@@ -1,0 +1,33 @@
+@import "./mixins.scss";
+.site-main {
+    width: 100%;
+     background-color: #000;
+}
+body{
+   
+   background: transparent !important;
+ 
+}
+body.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+@import 'header';
+@import 'sections/home_banner_slider';
+@import 'sections/our_services';
+@import 'sections/about_us';
+@import 'sections/recent_articles';
+@import 'sections/hero-image';
+@import 'sections/banner_image';
+@import 'sections/image_with_title_and_text';
+@import 'sections/service_blocks';
+@import 'sections/main_services_types';
+@import 'sections/custom_service_section';
+@import 'sections/single_title_and_text_section';
+@import 'sections/contact_us_form';
+@import 'sections/faq';
+@import 'articles-archive';
+@import 'single-article-page';
+@import 'footer';

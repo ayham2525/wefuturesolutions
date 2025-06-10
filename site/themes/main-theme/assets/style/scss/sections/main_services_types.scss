@@ -1,0 +1,122 @@
+@import "../mixins.scss";
+
+.dev-types-section.marquee-loop {
+background: hsla(222, 40%, 10%, 1); /* fallback dark navy */
+
+background: linear-gradient(
+  90deg,
+  hsla(222, 25%, 12%, 1) 0%,   /* deep blue-black */
+  hsla(222, 35%, 18%, 1) 50%,  /* soft dark navy */
+  hsla(222, 20%, 10%, 1) 100%  /* back to deep blue-black */
+);
+
+background: -moz-linear-gradient(
+  90deg,
+  hsla(222, 25%, 12%, 1) 0%,
+  hsla(222, 35%, 18%, 1) 50%,
+  hsla(222, 20%, 10%, 1) 100%
+);
+
+background: -webkit-linear-gradient(
+  90deg,
+  hsla(222, 25%, 12%, 1) 0%,
+  hsla(222, 35%, 18%, 1) 50%,
+  hsla(222, 20%, 10%, 1) 100%
+);
+
+background-size: 200% 200%;
+animation: gradientMove 12s ease infinite;
+  color: #fff;
+  padding: 60px 0;
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .section-title {
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-family: $alegreya;
+    line-height: 57.6px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .marquee-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+   
+  }
+
+  .marquee-inner {
+    display: flex;
+  gap: 24px;
+  width: max-content;
+  padding: 0 24px;
+  }
+
+  .marquee-track {
+   display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: scrollMarquee 30s linear infinite;
+  padding: 0 24px;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .dev-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    min-width: 220px;
+    min-height: 140px;
+    padding: 25px 20px;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: $montserrat;
+    text-align: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  @keyframes scrollMarquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}

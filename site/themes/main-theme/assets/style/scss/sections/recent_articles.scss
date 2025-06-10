@@ -1,0 +1,119 @@
+@import "../mixins.scss";
+
+.recent_articles {
+  background: #000; /* Fallback solid black */
+  background: linear-gradient(90deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  background: -moz-linear-gradient(90deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  background: -webkit-linear-gradient(90deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
+ 
+padding: 80px 20px;
+color: #ffffff;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    h2 {
+      font-size: 32px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      font-family: $alegreya;
+      line-height: 57.6px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .view-all {
+      font-size: 16px;
+      color: #00ffd0;
+      font-family: $montserrat;
+      font-weight: 500;
+      line-height: 22.4px;
+      text-decoration: none;
+      border-bottom: 1px solid #00ffd0;
+
+      &:hover {
+        color: #ffffff;
+        border-color: #ffffff;
+      }
+    }
+  }
+
+  .articles-row {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .article-card {
+  
+background: rgba(25, 40, 65, 0.6);
+backdrop-filter: blur(8px);
+border: 1px solid rgba(255, 255, 255, 0.08);    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .article-image {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .article-body {
+      padding: 20px;
+
+      .article-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #ffffff;
+      }
+
+      .article-snippet {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #d1d5db;
+        margin-bottom: 15px;
+      }
+
+      .read-more {
+        color: #00ffd0;
+        font-weight: 500;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// Gradient animation
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

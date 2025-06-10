@@ -1,0 +1,186 @@
+/***********************************************************************
+ *  Footer Styles  (append below your existing `.custom-footer` block)
+ *  — keeps the animated gradient + typography you defined earlier
+ *  — adds polish to subscribe form, menus, social icons, and bottom bar
+ *  — mobile-first, with neat stacking on <768 px
+ ***********************************************************************/
+@import "./mixins.scss";
+.custom-footer {
+background: hsla(222, 40%, 10%, 1); /* fallback dark navy */
+
+background: linear-gradient(
+  90deg,
+  hsla(222, 25%, 12%, 1) 0%,   /* deep blue-black */
+  hsla(222, 35%, 18%, 1) 50%,  /* soft dark navy */
+  hsla(222, 20%, 10%, 1) 100%  /* back to deep blue-black */
+);
+
+background: -moz-linear-gradient(
+  90deg,
+  hsla(222, 25%, 12%, 1) 0%,
+  hsla(222, 35%, 18%, 1) 50%,
+  hsla(222, 20%, 10%, 1) 100%
+);
+
+background: -webkit-linear-gradient(
+  90deg,
+  hsla(222, 25%, 12%, 1) 0%,
+  hsla(222, 35%, 18%, 1) 50%,
+  hsla(222, 20%, 10%, 1) 100%
+);
+
+background-size: 200% 200%;
+animation: gradientMove 12s ease infinite;
+  /* ==========  Layout helpers  ========== */
+  .footer-heading {
+ 
+    font-weight: 700;
+    margin-bottom: .85rem;
+    font-family: $alegreya;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+  }
+
+  /* ==========  1. Subscribe / Mini-Form  ========== */
+  // CF7 has messy default markup — normalise it
+  .wpcf7-form {
+    max-width: 290px;
+
+    input[type='text'],
+    input[type='email'],
+    textarea {
+      width: 100%;
+      padding: .65rem .9rem;
+      border: 1px solid rgba(#fff, .35);
+      background: rgba(#fff, .07);
+      color: #fff;
+      border-radius: 6px;
+      font-size: .9rem;
+      margin-bottom: .75rem;
+      transition: border-color .25s ease, background .25s ease;
+
+      &::placeholder { color: rgba(#fff, .55); }
+
+      &:focus {
+        border-color: #00ffd0;
+        background: rgba(#fff, .15);
+        outline: none;
+      }
+    }
+
+    textarea { min-height: 130px; }
+
+    input[type='submit'] {
+      display: inline-block;
+      width: 100%;
+      padding: .65rem 1rem;
+      border: 0;
+      border-radius: 6px;
+      background: #00b9ae;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background .3s ease;
+
+      &:hover,
+      &:focus { background: darken(#00b9ae, 8%); }
+    }
+  }
+
+  /* ==========  2. Footer Menus  ========== */
+  .list-unstyled {
+    li {
+      margin-bottom: 16px;
+
+
+      a {
+        position: relative;
+        display: inline-block;
+        font-family: $montserrat;
+        color: #fff;
+        text-decoration: none;
+        transition: color .25s;
+
+        &::after {               /* subtle underline on hover */
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 100%;
+          bottom: -2px;
+          height: 2px;
+          background: #00ffd0;
+          transition: right .25s ease;
+        }
+
+        &:hover {
+          color: #00ffd0;
+
+          &::after { right: 0; }
+        }
+      }
+    }
+  }
+
+  /* ==========  3. Social Icons  ========== */
+  .footer-social {
+    display: flex;
+    gap: 12px;
+
+    a {
+      display: inline-flex;
+      width: 18px;
+      height: 18px;
+      transition: transform .25s, filter .25s;
+
+      img {
+        width: 100%;
+        height: auto;
+        
+      }
+
+      &:hover,
+      &:focus {
+        transform: translateY(-3px);
+        
+      }
+    }
+  }
+
+  /* ==========  4. Bottom Bar  ========== */
+  .border-top {
+    border-top: 1px solid rgba(#fff, .25) !important;
+  }
+
+  p.small {
+    font-size: .8rem;
+    color: rgba(#fff, .75);
+  }
+
+  /* ==========  5. Responsiveness  ========== */
+  @include MaxQuery(767) {
+    .footer-heading { margin-top: 2rem; }          // space after stacked columns
+
+    .wpcf7-form { max-width: 100%; }
+
+    // bottom row: stack to column
+    .d-flex {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 1rem;
+    }
+  }
+      @keyframes gradientMove {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+}

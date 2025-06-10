@@ -1,0 +1,106 @@
+@import "./mixins.scss";
+.articles-archive {
+  padding: 60px 20px;
+  background: #f9f9f9;
+
+  .section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #1a1a1a;
+    font-family: $alegreya;
+    line-height: 57.6px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .articles-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .article-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+    flex: 1 1 calc(33.33% - 20px);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+    min-height: 460px;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .article-image img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .article-content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+
+      .article-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        flex-shrink: 0;
+         font-family:$montserrat;
+      }
+
+      .excerpt {
+        flex-grow: 1;
+        color: #444;
+        font-family:$montserrat;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22.4px;
+        margin-bottom: 20px;
+      }
+      .read-more {
+        margin-top: auto;
+        align-self: flex-start;
+        background: transparent;
+        border: 1px solid #33ccff;
+        color: #33ccff;
+        padding: 8px 16px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background 0.3s;
+         font-family:$montserrat;
+        &:hover {
+          background: #29b7e2;
+          color: #fff;
+           svg g {
+            fill: #fff !important;
+        }
+        }
+         svg {
+             transition: fill 0.3s ease;
+            fill: #29b7e2;
+            margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .article-card {
+      flex: 1 1 calc(50% - 20px);
+    }
+  }
+
+  @media (max-width: 575px) {
+    .article-card {
+      flex: 1 1 100%;
+    }
+  }
+}

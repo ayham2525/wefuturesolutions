@@ -1,0 +1,141 @@
+@import "../mixins.scss";
+
+.faq {
+    background: hsla(222, 40%, 10%, 1); /* fallback dark navy */
+
+background: linear-gradient(
+  90deg,
+  hsla(222, 25%, 12%, 1) 0%,   /* deep blue-black */
+  hsla(222, 35%, 18%, 1) 50%,  /* soft dark navy */
+  hsla(222, 20%, 10%, 1) 100%  /* back to deep blue-black */
+);
+
+background: -moz-linear-gradient(
+  90deg,
+  hsla(222, 25%, 12%, 1) 0%,
+  hsla(222, 35%, 18%, 1) 50%,
+  hsla(222, 20%, 10%, 1) 100%
+);
+
+background: -webkit-linear-gradient(
+  90deg,
+  hsla(222, 25%, 12%, 1) 0%,
+  hsla(222, 35%, 18%, 1) 50%,
+  hsla(222, 20%, 10%, 1) 100%
+);
+
+background-size: 200% 200%;
+animation: gradientMove 12s ease infinite;
+
+    .title {
+        font-size: 32px;
+        color: #ffffff;
+        margin-bottom: 20px;
+        font-family: $alegreya;
+        line-height: 57.6px;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .text {
+        font-size: 22px;
+        margin-bottom: 20px;
+        font-family: $alegreya;
+        font-size: 18px;
+        font-weight: 700;
+        color: #e0e0e0 !important;
+    }
+
+    .accordion {
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+            .faq-header {
+                background: rgba(25, 40, 65, 0.6);
+                backdrop-filter: blur(8px);
+                padding: 15px 20px;
+                cursor: pointer;
+                color: #fff;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                h5 {
+                    margin: 0;
+                    font-size: 1.1rem;
+                    color: #e0e0e0;
+                    font-family: $montserrat;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 22.4px;
+                }
+
+                .icon {
+                    font-size: 1.5rem;
+                    transition: transform 0.3s ease;
+                    display: inline-block;
+                }
+
+                &.active .icon {
+                    transform: rotate(90deg); // arrow rotates to point down
+                }
+            }
+
+            .faq-body {
+                background: rgba(25, 40, 65, 0.6);
+                backdrop-filter: blur(6px);
+                padding: 15px 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                display: none;
+                color: #e0e0e0;
+                font-family: $montserrat;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 22.4px;
+
+                & a,
+                a:hover {
+                    color: #e0e0e0 !important;
+                    text-decoration: none;
+                }
+
+                & p {
+
+                    & a,
+                    a:hover {
+                        color: #e0e0e0 !important;
+                        text-decoration: none;
+                    }
+                }
+
+                & .cursor-pointer,
+                .cursor-pointer:hover {
+                    color: #e0e0e0 !important;
+                    text-decoration: none;
+                }
+
+                &.show {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    @keyframes gradientMove {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+}
