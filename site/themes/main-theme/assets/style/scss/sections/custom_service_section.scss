@@ -51,6 +51,10 @@
     height: 100%;
     text-align: left;
     padding: 30px;
+    @include MaxQuery(992){
+      padding-left: unset !important;
+      padding-right: unset !important;
+    }
 
     .title {
       font-size: 32px;
