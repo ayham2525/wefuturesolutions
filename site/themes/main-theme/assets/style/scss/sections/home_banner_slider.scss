@@ -125,57 +125,49 @@
         transition: none !important;
     }
 
-     & .learn-more {
-      align-self: flex-start;
-      margin-top: 30px;
-      padding: 12px 24px;
-      background-color: rgba(0, 181, 216, 0.2); // light transparent base
-      backdrop-filter: blur(8px);              // blur effect
-     -webkit-backdrop-filter: blur(8px);      // for Safari
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-family: $montserrat;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 22.4px;
-      border: 1px solid #fff;
-      transition: all 0.3s ease;
-      @include MaxQuery($sm){
-        display: block;
-        width: 100%;
-        text-align: center;
-          background-color: rgba(0, 181, 216, 0.2); // light transparent base
-      backdrop-filter: blur(8px);              // blur effect
-     -webkit-backdrop-filter: blur(8px);      // for Safari
-      color: #fff;
-        margin-bottom: 16px;
-         svg {
-        transition: fill 0.3s ease;
-        fill: #000;
-        margin-left: 10px;
-        }
-         svg g {
-          fill: #fff !important;
-        }
-      }
+     .learn-more {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 30px;
+  padding: 12px 24px;
+  background-color: rgba(0, 181, 216, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-clip: padding-box;
+  transform: translateZ(0);
+  z-index: 2;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid #fff;
+  text-decoration: none;
+  text-align: center;
+  font-family: $montserrat;
+  transition: all 0.3s ease;
 
-      svg {
-        transition: fill 0.3s ease;
-        fill: #fff;
-        margin-left: 10px;
-      }
+  svg, svg * {
+    fill: #fff !important;
+    margin-left: 10px;
+    transition: fill 0.3s ease;
+  }
 
-      &:hover {
-        background-color: #fff;
-        color: #001a2e;
-        transform: translateY(-2px);
+  &:hover {
+    background-color: #fff;
+    color: #001a2e;
 
-        svg g {
-          fill: #001a2e !important;
-        }
-      }
+    svg, svg * {
+      fill: #001a2e !important;
     }
+  }
+
+  @include MaxQuery($sm) {
+    width: 100%;
+    display: block;
+    margin-bottom: 16px;
+  }
+}
+
 }
 
 @media (max-width: 768px) {
