@@ -67,7 +67,11 @@
         </div><!-- /.container -->
 
         <!-- Mobile Fullscreen Slide Menu -->
-        <div id="mobile-navbar" class="mobile-slide-menu d-md-none">
+     
+    </nav>
+</header>
+
+   <div id="mobile-navbar" class="mobile-slide-menu d-md-none">
             <div class="mobile-nav-inner">
                 <button id="mobileMenuClose" aria-label="Close Menu">
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2">
@@ -85,10 +89,6 @@
                 ?>
             </div>
         </div>
-    </nav>
-</header>
-
-
 
 	<main id="main" class="container-fluid p-0"<?php if ( isset( $navbar_position ) && 'fixed_top' === $navbar_position ) : echo ' style="padding-top: 100px;"'; elseif ( isset( $navbar_position ) && 'fixed_bottom' === $navbar_position ) : echo ' style="padding-bottom: 100px;"'; endif; ?>>
 		 
