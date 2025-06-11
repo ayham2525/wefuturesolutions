@@ -92,3 +92,6 @@
 
 	<main id="main" class="container-fluid p-0"<?php if ( isset( $navbar_position ) && 'fixed_top' === $navbar_position ) : echo ' style="padding-top: 100px;"'; elseif ( isset( $navbar_position ) && 'fixed_bottom' === $navbar_position ) : echo ' style="padding-bottom: 100px;"'; endif; ?>>
 		 
+<a href="https://wa.me/971555056625" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fa fa-whatsapp"></i>
+</a>
